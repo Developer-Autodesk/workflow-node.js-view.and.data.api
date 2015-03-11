@@ -31,10 +31,9 @@ $(document).ready(function () {
         environment : (staging ? 'AutodeskStaging' : 'AutodeskProduction')
     }
 
-    // instantiate viewer manager
-    var adnViewerMng = new Autodesk.ADN.Toolkit.Viewer.AdnViewerManager(
+    // instantiate viewer factory
+    var viewerFactory = new Autodesk.ADN.Toolkit.Viewer.AdnViewerFactory(
         tokenurl,
-        document.getElementById('viewerDiv'),
         config);
 
     // allows different urn to be passed as url parameter
@@ -42,17 +41,27 @@ $(document).ready(function () {
 
     var urn = (paramUrn !== '' ? paramUrn : (staging ? urnstg : urnprod));
 
-    adnViewerMng.loadDocument(urn, onViewerInitialized, onError);
-});
+    viewerFactory.getViewablePath (urn,
 
-function onViewerInitialized(viewer)
-{
-    console.log('Viewer initialized');
-};
+        function(pathInfoCollection) {
+
+            var viewerConfig = {
+                viewerType: 'GuiViewer3D'
+            }
+
+            var viewer = viewerFactory.createViewer(
+                $('#viewerDiv')[0],
+                viewerConfig);
+
+            viewer.load(pathInfoCollection.path3d[0].path);
+        },
+        onError);
+
+});
 
 function onError(error)
 {
-    console.log(error);
+    console.log('Error: ' + error);
 };
 
 
