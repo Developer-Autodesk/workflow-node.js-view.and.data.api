@@ -15,7 +15,7 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////////////////
-var urnprod = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRuLXZpZXdlci1nYWxsZXJ5LzBjMGMtMThiZi02MjJmLWNhNWUtOWVmMi5kd2Y=';
+var urnprod = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWwtYXMtYS1zZXJ2aWNlMjAxNTAxMjYvU2VhdC5kd2Z4';
 var urnstg = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRuLTEyLjAyLjIwMTUtMTMuNTUuMDIvQW5hbHl6ZS5kd2Y=';
 
 $(document).ready(function () {
@@ -27,7 +27,6 @@ $(document).ready(function () {
         '/node/basic/api/' + (staging ? 'tokenstg' : 'token');
 
     var config = {
-
         environment : (staging ? 'AutodeskStaging' : 'AutodeskProduction')
     }
 
@@ -67,7 +66,7 @@ function onError(error)
 
 // Following code does not rely on Autodesk.ADN.Toolkit.Viewer.AdnViewerManager
 // and uses Autodesk API directly
-
+//
 //        $(document).ready(function () {
 //
 //            var getToken =  function() {

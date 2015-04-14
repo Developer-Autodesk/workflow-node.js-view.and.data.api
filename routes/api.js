@@ -42,7 +42,6 @@ router.get('/token', function (req, res) {
         function (error, response, body) {
 
             if (!error && response.statusCode == 200) {
-
                 res.send(body);
             }
         });
@@ -65,9 +64,7 @@ router.get('/tokenstg', function (req, res) {
         { form: params },
 
         function (error, response, body) {
-
             if (!error && response.statusCode == 200) {
-
                 res.send(body);
             }
         });

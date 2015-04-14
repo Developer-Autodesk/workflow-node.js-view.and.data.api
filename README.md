@@ -19,71 +19,78 @@ This sample does not includes the workflow of uploading models. It depends on ot
 ## Setup/Usage Instructions
 Use your own credentials and upload models on your account
  
-*	Apply your own credentials from [http://developer.autodesk.com](http://developer.autodesk.com)
-*	Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
+* Apply your own credentials from [http://developer.autodesk.com](http://developer.autodesk.com)
+* Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
   ```
   credentials.ClientId = '<replace with clientId>';
   
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
-*	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. 
-*	Copy this URN in /www/views/index.js at line #18 <br />
+* Upload one of your model in your account and get its URN using other workflow sample, for example,
+  - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows 
+  - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac
+  - or this [WEB page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com/)
+* Copy this URN in /www/views/index.js at line #18 <br />
   ```
   var urnprod = 'your_urn_here';
   ```
-*	Run the server from the Node.js console, by running the follwing command: <br />
+* Run the server from the Node.js console, by running the following command: <br />
   ```
   node server.js
   ```
-*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
+* Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
-This sample can also work with the Autodesk staging server (vs production) or work with someone else credentials as long you can get a valid token. By default, the project is setup with the production server, and use your own credentials. If you are interested by a different setup, see the Options below.
+This sample can also work with the Autodesk staging server (vs production) or work with someone else credentials as long you can get a valid token. 
+By default, the project is setup with the production server, and use your own credentials. If you are interested by a different setup, see the Options below.
 
 ## Options
 
 You can work with production or staging Autodesk View and Data environments. By default, the project is setup with the production server.
 
-### Production server option: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
+### Option A: Production server option: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
 
-*	The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them, or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com). The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
-*	Copy this URN in /www/views/index.js at line #18 <br />
+* The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them, or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com). The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
+* Copy this URN in /www/views/index.js at line #18 <br />
   ```
   var urnprod = 'your_urn_here';
   ```
-*	In /www/views/index.js, at line #36, change value of tokenurl to the access token you can generate from  'http://still-spire-1606.herokuapp.com/api/rawtoken'
-*	Run the server from the Node.js console, by running the follwing command: <br />
+* In /www/views/index.js, at line #36, change value of tokenurl to the access token you can generate from  'http://still-spire-1606.herokuapp.com/api/rawtoken'
+* Run the server from the Node.js console, by running the following command: <br />
   ```
   node server.js
   ```
-*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
+* Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
-### To work with the staging environment, you need to use your own credential vs the option above. 
-*	Apply your own credentials from [http://developer-stg.autodesk.com](http://developer-stg.autodesk.com)
-*	Replace the place holder with your own keys in credentials-stg.js, line #23 and #25 <br />
+### Option B: To work with the staging environment, you need to use your own credential vs the option above. 
+* Apply your own credentials from [http://developer-stg.autodesk.com](http://developer-stg.autodesk.com)
+* Replace the place holder with your own keys in credentials-stg.js, line #23 and #25 <br />
   ```
   credentials.ClientId = '<replace with clientId>';
   
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
-*	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed with the workflows.
-*	Copy this URN in /www/views/index.js at line #19 <br />
+* Upload one of your model in your account and get its URN using other workflow sample,for example,
+  - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows
+  - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac
+  But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed with the workflows.
+* Copy this URN in /www/views/index.js at line #19 <br />
   ```
   var urnstg = 'your_urn_here';
   ```
-*	In /www/views/index.js, around line #24, make sure the variable staging is true. 
-*	In /www/views/index.html (line $33 and #34), use viewer3D.min.js and style.css from the staging environment <br />
+* In /www/views/index.js, around line #24, make sure the variable staging is true. 
+* In /www/views/index.html (line $33 and #34), use viewer3D.min.js and style.css from the staging environment <br />
   ```
   <link type="text/css" rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"/>
   
   <script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
   ```
-*	Run the server from the Node.js console, by running the follwing command: <br />
+* Run the server from the Node.js console, by running the following command: <br />
   ```
   node server.js
   ```
-*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
+* Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
 ## License
