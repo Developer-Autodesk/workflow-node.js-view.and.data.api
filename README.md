@@ -1,45 +1,23 @@
-#Autodesk view and data API Node.js Basic Sample
+# Autodesk View and Data API Node.js Basic Sample
 
 
-##Description
+## Description
+A sample demonstrating how to view a model into web application with the Autodesk View & Data API. This web application has a basic Node.js server and JavaScript/HTML5 client. This sample does not demonstrate how to upload a model ont he Autodesk server for translation.
 
-
-A sample demonstrating how to load a model into web application with the Autodesk View & Data API. This web application has a basic Node.js server and JavaScript/HTML5 client
-
-##Dependencies
-
+## Dependencies
 Install Node.js on your machine and clone this repo. Download the project' dependencies using npm before running the app by running the following command
 ```
 npm install
 ```
-on the node.js console. This will install the following node.js modules in the project.
+on the node.js console. This will install the following node.js modules in the project:
 - express
 - request
 - serve-favicon
 
 This sample does not includes the workflow of uploading models. It depends on other workflow samples to upload models, get model URN. Please follow Setup/Usage Instructions.
 
-##Setup/Usage Instructions
-
-You can work with production or staging Autodesk View and Data environments. By default, the project is setup with the production server.
-
-With the production server, you got 2 options to setup and run this sample.
- 
-### Option A: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
-
-*	The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them, or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com). The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
-*	Copy this URN in /www/views/index.js at line #18 <br />
-  ```
-  var urnprod = 'your_urn_here';
-  ```
-*	In /www/views/index.js, at line #36, change value of tokenurl to the access token you can generate from  'http://still-spire-1606.herokuapp.com/api/rawtoken'
-*	Run the server from the Node.js console, by running the follwing command: <br />
-  ```
-  node server.js
-  ```
-*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
-
-### Option B: Use your own credentials and upload models on your account
+## Setup/Usage Instructions
+Use your own credentials and upload models on your account
  
 *	Apply your own credentials from [http://developer.autodesk.com](http://developer.autodesk.com)
 *	Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
@@ -59,7 +37,29 @@ With the production server, you got 2 options to setup and run this sample.
   ```
 *	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
 
-#### To work with the staging environment, you need to use Option B. 
+
+This sample can also work with the Autodesk staging server (vs production) or work with someone else credentials as long you can get a valid token. By default, the project is setup with the production server, and use your own credentials. If you are interested by a different setup, see the Options below.
+
+## Options
+
+You can work with production or staging Autodesk View and Data environments. By default, the project is setup with the production server.
+
+### Production server option: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
+
+*	The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them, or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com). The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
+*	Copy this URN in /www/views/index.js at line #18 <br />
+  ```
+  var urnprod = 'your_urn_here';
+  ```
+*	In /www/views/index.js, at line #36, change value of tokenurl to the access token you can generate from  'http://still-spire-1606.herokuapp.com/api/rawtoken'
+*	Run the server from the Node.js console, by running the follwing command: <br />
+  ```
+  node server.js
+  ```
+*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
+
+
+### To work with the staging environment, you need to use your own credential vs the option above. 
 *	Apply your own credentials from [http://developer-stg.autodesk.com](http://developer-stg.autodesk.com)
 *	Replace the place holder with your own keys in credentials-stg.js, line #23 and #25 <br />
   ```
