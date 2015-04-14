@@ -39,39 +39,55 @@ With the production server, you got 2 options to setup and run this sample.
   ```
 *	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
 
-Option B: Use your own credentials and upload models on your account
+### Option B: Use your own credentials and upload models on your account
  
-*	Apply your own credentials from http://developer.autodesk.com 
-*	Install Node.js
-*	Run "npm install" command from the server directory to install the necessary packages which are mentioned in Dependencies.
-*	Replace the place holder with your own credentials in credentials.js
+*	Apply your own credentials from [http://developer.autodesk.com](http://developer.autodesk.com)
+*	Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
+  ```
+  credentials.ClientId = '<replace with clientId>';
+  credentials.ClientSecret = '<replace with clientSecret>';
+  ```
 *	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. 
-*	Get your model urn from the workflow sample, and copy this URN in /www/views/index.js, replace the one for "urnprod", around line #20.
-*	In /www/views/index.js, around line #28, make sure the variable staging is false. 
-*	In /www/views/index.js, around line #31, change value of tokenurl to get token through Node.js server
-*	In /www/views/index.html, use viewer3D.min.js and style.css from production environment  
-*	Run the server: "node server.js" from command line
-*	Connect to server locally using a WebGL-compatible browser: http://localhost:3000/node/basic
+*	Copy this URN in /www/views/index.js at line #18 <br />
+  ```
+  var urnprod = 'your_urn_here';
+  ```
+*	Run the server from the Node.js console, by running the follwing command: <br />
+  ```
+  node server.js
+  ```
+*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
 
-To work with staging, only option B is available currently. 
-*	Apply your own credentials from http://developer-stg.autodesk.com 
-*	Install Node.js
-*	Run "npm install" command from the server directory to install the necessary packages which are mentioned in Dependencies..
-*	Replace the place holder with your own credentials in credentials-stg.js
-*	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed the workflow.
-*	Get your model urn from the workflow sample, and copy this URN in /www/views/index.js, replace the one for "urnstg", around line #23.
-*	In /www/views/index.js, around line #28, make sure the variable staging is true. 
-*	In /www/views/index.js, around line #31, change value of tokenurl to get token through Node.js server
-*	In /www/views/index.html, use viewer3D.min.js and style.css from staging environment  
-*	Run the server: "node server.js" from command line
-*	Connect to server locally using a WebGL-compatible browser: http://localhost:3000/node/basic	
+#### To work with the staging environment, you need to use Option B. 
+*	Apply your own credentials from [http://developer-stg.autodesk.com](http://developer-stg.autodesk.com)
+*	Replace the place holder with your own keys in credentials-stg.js, line #23 and #25 <br />
+  ```
+  credentials.ClientId = '<replace with clientId>';
+  credentials.ClientSecret = '<replace with clientSecret>';
+  ```
+*	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed with the workflows.
+*	Copy this URN in /www/views/index.js at line #19 <br />
+  ```
+  var urnstg = 'your_urn_here';
+  ```
+*	In /www/views/index.js, around line #24, make sure the variable staging is true. 
+*	In /www/views/index.html (line $33 and #34), use viewer3D.min.js and style.css from the staging environment <br />
+  ```
+  <link type="text/css" rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"/>
+  <script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+  ```
+*	Run the server from the Node.js console, by running the follwing command: <br />
+  ```
+  node server.js
+  ```
+*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
 
 
 ## License
 
 That samples are licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
 
-##Written by 
+## Written by 
 
 Written by [Philippe Leefsma](http://adndevblog.typepad.com/cloud_and_mobile/philippe-leefsma.html)  
 
