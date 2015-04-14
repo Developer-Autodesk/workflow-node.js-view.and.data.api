@@ -8,11 +8,11 @@ A sample demonstrating how to load a model into web application with the Autodes
 
 ##Dependencies
 
-Install the project' dependencies using npm before running the app by running the following command
-'''
+Install Node.js on your machine and clone this repo. Download the project' dependencies using npm before running the app by running the following command
+```
 npm install
-'''
-on the node.js console. This will install
+```
+on the node.js console. This will install the following node.js modules in the project.
 - express
 - request
 - serve-favicon
@@ -21,22 +21,24 @@ This sample does not includes the workflow of uploading models. It depends on ot
 
 ##Setup/Usage Instructions
 
-You can work with production or staging environment of Autodesk View and Data.
+You can work with production or staging Autodesk View and Data environments. By default, the project is setup with the production server.
 
-To work with production, there are 2 options to setup and run this sample
+With the production server, you got 2 options to setup and run this sample.
  
-Option A: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
+### Option A: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
 
-*	Install Node.js
-*	Run "npm install" command from the server directory to install the necessary packages which are mentioned in Dependencies.
 *	The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them.
-    Or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com)
-*	The [upload tool](http://still-spire-1606.herokuapp.com) will generate the URN of the model
-*	Copy this URN in /www/views/index.js, around line #20, replace the value for "urnprod".
-*	In /www/views/index.js, around line #28, make sure the variable staging is false. 
-*	In /www/views/index.js, around line #31, change value of tokenurl to the token service 'http://still-spire-1606.herokuapp.com/api/rawtoken'
-*	In /www/views/index.html, use viewer3D.min.js and style.css from production environment 
-*	Run the server: "node server.js" from command line
+  Or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com) <br />
+  The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
+*	Copy this URN in /www/views/index.js at line #18
+  ```
+  var urnprod = 'your_urn_here';
+  ```
+*	In /www/views/index.js, at line #36, change value of tokenurl to the access token you can generate from  'http://still-spire-1606.herokuapp.com/api/rawtoken'
+*	Run the server from the Node.js console, by running the follwing command:
+  ```
+  node server.js
+  ```
 *	Connect to server locally using a WebGL-compatible browser: http://localhost:3000/node/basic
 
 Option B: Use your own credentials and upload models on your account
