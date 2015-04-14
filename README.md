@@ -23,7 +23,6 @@ Use your own credentials and upload models on your account
 *	Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
   ```
   credentials.ClientId = '<replace with clientId>';
-  
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
 *	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. 
