@@ -73,7 +73,7 @@ You can work with production or staging Autodesk View and Data environments. By 
   ```
 * Upload one of your model in your account and get its URN using other workflow sample,for example,
   - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows
-  - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac
+  - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac <br />
   But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed with the workflows.
 * Copy this URN in /www/views/index.js at line #19 <br />
   ```
