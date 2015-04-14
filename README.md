@@ -45,6 +45,7 @@ With the production server, you got 2 options to setup and run this sample.
 *	Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
   ```
   credentials.ClientId = '<replace with clientId>';
+  
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
 *	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. 
@@ -62,7 +63,8 @@ With the production server, you got 2 options to setup and run this sample.
 *	Apply your own credentials from [http://developer-stg.autodesk.com](http://developer-stg.autodesk.com)
 *	Replace the place holder with your own keys in credentials-stg.js, line #23 and #25 <br />
   ```
-  credentials.ClientId = '<replace with clientId>'; <br />
+  credentials.ClientId = '<replace with clientId>';
+  
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
 *	Upload one of your model in your account and get its URN using other workflow sample,for example, [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac. But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed with the workflows.
@@ -73,7 +75,8 @@ With the production server, you got 2 options to setup and run this sample.
 *	In /www/views/index.js, around line #24, make sure the variable staging is true. 
 *	In /www/views/index.html (line $33 and #34), use viewer3D.min.js and style.css from the staging environment <br />
   ```
-  <link type="text/css" rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"/> <br />
+  <link type="text/css" rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"/>
+  
   <script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
   ```
 *	Run the server from the Node.js console, by running the follwing command: <br />
