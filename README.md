@@ -8,12 +8,16 @@ A sample demonstrating how to load a model into web application with the Autodes
 
 ##Dependencies
 
-*	Install these packages with npm before running the app by running "npm install" command from the server directory.
+Install the project' dependencies using npm before running the app by running the following command
+'''
+npm install
+'''
+on the node.js console. This will install
 - express
 - request
 - serve-favicon
 
-*	This sample does not includes the workflow of uploading models. It depends on other workflow samples to upload models, get model URN. Please follow Setup/Usage Instructions.
+This sample does not includes the workflow of uploading models. It depends on other workflow samples to upload models, get model URN. Please follow Setup/Usage Instructions.
 
 ##Setup/Usage Instructions
 
