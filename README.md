@@ -38,7 +38,7 @@ Use your own credentials and upload models on your account
   ```
   node server.js
   ```
-* Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
+* Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
 This sample can also work with the Autodesk staging server (vs production) or work with someone else credentials as long you can get a valid token. 
@@ -60,7 +60,7 @@ You can work with production or staging Autodesk View and Data environments. By 
   ```
   node server.js
   ```
-* Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
+* Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
 ### Option B: To work with the staging environment, you need to use your own credential vs the option above. 
@@ -90,7 +90,7 @@ You can work with production or staging Autodesk View and Data environments. By 
   ```
   node server.js
   ```
-* Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
+* Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
 ## License
