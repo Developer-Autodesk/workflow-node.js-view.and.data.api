@@ -2,10 +2,10 @@
 
 
 ## Description
-A sample demonstrating how to view a model into web application with the Autodesk View & Data API. This web application has a basic Node.js server and JavaScript/HTML5 client. This sample does not demonstrate how to upload a model ont he Autodesk server for translation.
+A sample demonstrating how to view a model in a web application with the Autodesk View & Data API. This web application has a basic Node.js server and JavaScript/HTML5 client. This sample does not demonstrate how to upload a model to the Autodesk server for translation.
 
 ## Dependencies
-Install Node.js on your machine and clone this repo. Download the project' dependencies using npm before running the app by running the following command
+Install Node.js on your machine and clone this repo. Download the project dependencies using npm before running the app by running the following command
 ```
 npm install
 ```
@@ -14,19 +14,19 @@ on the node.js console. This will install the following node.js modules in the p
 - request
 - serve-favicon
 
-This sample does not includes the workflow of uploading models. It depends on other workflow samples to upload models, get model URN. Please follow Setup/Usage Instructions.
+This sample does not include the workflow of uploading models. It depends on other workflow samples to upload models and get model URNs - as explained in the Setup/Usage Instructions.
 
 ## Setup/Usage Instructions
-Use your own credentials and upload models on your account
+Use your own credentials to upload models to your account
  
-* Apply your own credentials from [http://developer.autodesk.com](http://developer.autodesk.com)
-* Replace the place holder with your own keys in credentials.js, line #23 and #25 <br />
+* Apply for your own credentials (API keys) from [http://developer.autodesk.com](http://developer.autodesk.com)
+* Replace the placeholder with your own keys in credentials.js, line #23 and #25 <br />
   ```
   credentials.ClientId = '<replace with clientId>';
   
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
-* Upload one of your model in your account and get its URN using other workflow sample, for example,
+* Upload one of your models to your account and get its URN using another workflow sample, for example,
   - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows 
   - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac
   - or this [WEB page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com/)
@@ -41,7 +41,7 @@ Use your own credentials and upload models on your account
 * Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
-This sample can also work with the Autodesk staging server (vs production) or work with someone else credentials as long you can get a valid token. 
+This sample can also work with the Autodesk staging server (vs production) or work with someone else's credentials as long you can get a valid token. 
 By default, the project is setup with the production server, and use your own credentials. If you are interested by a different setup, see the Options below.
 
 ## Options
@@ -60,10 +60,10 @@ You can work with production or staging Autodesk View and Data environments. By 
   ```
   node server.js
   ```
-* Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
+* Connect to your local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
-### Option B: To work with the staging environment, you need to use your own credential vs the option above. 
+### Option B: To work with the staging environment, you need to use your own credentials vs the option above. 
 * Apply your own credentials from [http://developer-stg.autodesk.com](http://developer-stg.autodesk.com)
 * Replace the place holder with your own keys in credentials-stg.js, line #23 and #25 <br />
   ```
@@ -71,7 +71,7 @@ You can work with production or staging Autodesk View and Data environments. By 
   
   credentials.ClientSecret = '<replace with clientSecret>';
   ```
-* Upload one of your model in your account and get its URN using other workflow sample,for example,
+* Upload one of your models to your account and get its URN using another workflow sample, for example,
   - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows
   - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac <br />
   But please use [staging URL](https://developer-stg.api.autodesk.com) to proceed with the workflows.
