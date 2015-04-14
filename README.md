@@ -27,19 +27,17 @@ With the production server, you got 2 options to setup and run this sample.
  
 ### Option A: Use [upload tool](http://still-spire-1606.herokuapp.com) online service to upload model. 
 
-*	The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them.
-  Or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com) <br />
-  The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
-*	Copy this URN in /www/views/index.js at line #18
+*	The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them, or upload one of your own models with [upload tool](http://still-spire-1606.herokuapp.com). The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
+*	Copy this URN in /www/views/index.js at line #18 <br />
   ```
   var urnprod = 'your_urn_here';
   ```
 *	In /www/views/index.js, at line #36, change value of tokenurl to the access token you can generate from  'http://still-spire-1606.herokuapp.com/api/rawtoken'
-*	Run the server from the Node.js console, by running the follwing command:
+*	Run the server from the Node.js console, by running the follwing command: <br />
   ```
   node server.js
   ```
-*	Connect to server locally using a WebGL-compatible browser: http://localhost:3000/node/basic
+*	Connect to server locally using a WebGL-compatible browser: [http://localhost:3000/node/basic](http://localhost:3000/node/basic)
 
 Option B: Use your own credentials and upload models on your account
  
