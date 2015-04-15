@@ -16,7 +16,6 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////////////////
 var credentials = require('../credentials');
-var credentialsStg = require('../credentials-stg');
 
 var express = require('express');
 var request = require('request');
@@ -24,38 +23,12 @@ var request = require('request');
 var router = express.Router();
 
 ///////////////////////////////////////////////////////////////////////////////
-// Generates access token (production)
-//
+// Generates access token
 ///////////////////////////////////////////////////////////////////////////////
 router.get('/token', function (req, res) {
-
     var params = {
         client_id: credentials.ClientId,
         client_secret: credentials.ClientSecret,
-        grant_type: 'client_credentials'
-    }
-
-    request.post(
-        credentials.BaseUrl + '/authentication/v1/authenticate',
-        { form: params },
-
-        function (error, response, body) {
-
-            if (!error && response.statusCode == 200) {
-                res.send(body);
-            }
-        });
-});
-
-///////////////////////////////////////////////////////////////////////////////
-// Generates access token (staging)
-//
-///////////////////////////////////////////////////////////////////////////////
-router.get('/tokenstg', function (req, res) {
-
-    var params = {
-        client_id: credentialsStg.ClientId,
-        client_secret: credentialsStg.ClientSecret,
         grant_type: 'client_credentials'
     }
 

@@ -16,13 +16,17 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////////////////
 
-var credentials = {};
+var credentials ={} ;
 
-credentials.BaseUrl = 'https://developer.api.autodesk.com';
+// If you which to use the Autodesk View & Data API on the staging server,
+// comment out the line #23 and uncomment line #24
+credentials.BaseUrl = 'https://developer.api.autodesk.com' ;
+//credentials.BaseUrl = 'https://developer-stg.api.autodesk.com' ;
 
-credentials.ClientId = '<replace with clientId staging>';
+// Replace placeholder below by the Consumer Key and Consumer secret you got from
+// http://developer.autodesk.com/ for the production server
+// or http://developer-stg.autodesk.com/ for the staging server
+credentials.ClientId ='<replace with consumer key>' ;
+credentials.ClientSecret ='<replace with consumer secret>' ;
 
-credentials.ClientSecret = '<replace with clientSecret staging>';
-
-module.exports = credentials;
-
+module.exports =credentials ;

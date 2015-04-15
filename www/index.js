@@ -15,38 +15,29 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////////////////
-var urnprod = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWwtYXMtYS1zZXJ2aWNlMjAxNTAxMjYvU2VhdC5kd2Z4';
-var urnstg = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRuLTEyLjAyLjIwMTUtMTMuNTUuMDIvQW5hbHl6ZS5kd2Y=';
+var defaultUrn = '<replace with your encoded urn>';
 
 $(document).ready(function () {
-
-    // indicates if using staging or production environment
-    var staging = false;
-
-    var tokenurl = 'http://' + window.location.host +
-        '/node/basic/api/' + (staging ? 'tokenstg' : 'token');
-
+    var tokenurl = 'http://' + window.location.host + '/api/token';
     var config = {
-        environment : (staging ? 'AutodeskStaging' : 'AutodeskProduction')
-    }
+        environment : 'AutodeskProduction'
+		//environment : 'AutodeskStaging'
+    };
 
-    // instantiate viewer factory
+    // Instantiate viewer factory
     var viewerFactory = new Autodesk.ADN.Toolkit.Viewer.AdnViewerFactory(
         tokenurl,
         config);
 
-    // allows different urn to be passed as url parameter
+    // Allows different urn to be passed as url parameter
     var paramUrn = Autodesk.Viewing.Private.getParameterByName('urn');
-
-    var urn = (paramUrn !== '' ? paramUrn : (staging ? urnstg : urnprod));
+    var urn = (paramUrn !== '' ? paramUrn : defaultUrn);
 
     viewerFactory.getViewablePath (urn,
-
         function(pathInfoCollection) {
-
             var viewerConfig = {
                 viewerType: 'GuiViewer3D'
-            }
+            };
 
             var viewer = viewerFactory.createViewer(
                 $('#viewerDiv')[0],
@@ -58,42 +49,31 @@ $(document).ready(function () {
 
 });
 
-function onError(error)
-{
+function onError(error) {
     console.log('Error: ' + error);
 };
 
 
-// Following code does not rely on Autodesk.ADN.Toolkit.Viewer.AdnViewerManager
-// and uses Autodesk API directly
+// The following code does not rely on Autodesk.ADN.Toolkit.Viewer.AdnViewerManager
+// and uses the Autodesk API directly.
 //
 //        $(document).ready(function () {
-//
 //            var getToken =  function() {
-//
 //                var xhr = new XMLHttpRequest();
-//
 //                xhr.open("GET", 'http://' + window.location.host + '/api/token', false);
 //                xhr.send(null);
-//
 //                return xhr.responseText;
 //            }
 //
 //            function initializeViewer(containerId, documentId, role) {
-//
 //                var viewerContainer = document.getElementById(containerId);
-//
 //                var viewer = new Autodesk.Viewing.Private.GuiViewer3D(
 //                        viewerContainer);
-//
 //                viewer.start();
 //
 //                Autodesk.Viewing.Document.load(documentId,
-//
 //                        function (document) {
-//
 //                            var rootItem = document.getRootItem();
-//
 //                            var geometryItems = Autodesk.Viewing.Document.getSubItemsWithProperties(
 //                                    rootItem,
 //                                    { 'type': 'geometry', 'role': role },
@@ -101,6 +81,7 @@ function onError(error)
 //
 //                            viewer.load(document.getViewablePath(geometryItems[0]));
 //                        },
+//
 //                        // onErrorCallback
 //                        function (msg) {
 //                            console.log("Error loading document: " + msg);
@@ -109,7 +90,6 @@ function onError(error)
 //            }
 //
 //            function initialize() {
-//
 //                var options = {
 //                    env: "AutodeskProduction",
 //                    getAccessToken: getToken,
@@ -117,7 +97,6 @@ function onError(error)
 //                };
 //
 //                Autodesk.Viewing.Initializer(options, function () {
-//
 //                    initializeViewer('viewerDiv', urn, '3d');
 //                });
 //            }
