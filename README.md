@@ -41,7 +41,7 @@ get model URNs - as explained in the Setup/Usage Instructions.
   credentials.ClientSecret = '<replace with your consumer secret>';
   ```
 * Upload one of your models to your account and get its URN using another workflow sample, for example,
-  - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows 
+  - [this workflow sample in .Net WPF application](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) if you are using windows 
   - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac
   - or this [WEB page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com/)
 * Copy the URN which was generated in the previous step in file /www/index.js at line #18 <br />
