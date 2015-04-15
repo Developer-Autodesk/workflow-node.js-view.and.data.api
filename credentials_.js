@@ -26,7 +26,7 @@ credentials.BaseUrl = 'https://developer.api.autodesk.com' ;
 // Replace placeholder below by the Consumer Key and Consumer secret you got from
 // http://developer.autodesk.com/ for the production server
 // or http://developer-stg.autodesk.com/ for the staging server
-credentials.ClientId ='<replace with consumer key>' ;
-credentials.ClientSecret ='<replace with consumer secret>' ;
+credentials.ClientId ='<replace with your consumer key>' ;
+credentials.ClientSecret ='<replace with your consumer secret>' ;
 
 module.exports =credentials ;

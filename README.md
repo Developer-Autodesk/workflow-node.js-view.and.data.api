@@ -36,9 +36,9 @@ get model URNs - as explained in the Setup/Usage Instructions.
 	```
 * Replace the placeholder with your own keys in credentials.js, line #29 and #30 <br />
   ```
-  credentials.ClientId = '<replace with consumer key>';
+  credentials.ClientId = '<replace with your consumer key>';
   
-  credentials.ClientSecret = '<replace with consumer secret>';
+  credentials.ClientSecret = '<replace with your consumer secret>';
   ```
 * Upload one of your models to your account and get its URN using another workflow sample, for example,
   - [this workflow sample in .net winform application](https://github.com/Developer-Autodesk/workflow-dotnet-winform-view.and.data.api/) if you are using windows 

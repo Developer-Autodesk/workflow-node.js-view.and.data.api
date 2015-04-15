@@ -40,9 +40,9 @@ get model URNs - as explained in the Setup/Usage Instructions.
 	```
 * Replace the placeholder with your own keys in credentials.js, line #29 and #30 <br />
   ```
-  credentials.ClientId = '<replace with consumer key>';
+  credentials.ClientId = '<replace with your consumer key>';
   
-  credentials.ClientSecret = '<replace with consumer secret>';
+  credentials.ClientSecret = '<replace with your consumer secret>';
   ```
 * In file credentials.js, comment out line #23, and uncomment line #24
 * Upload one of your models to your account and get its URN using another workflow sample, for example,
