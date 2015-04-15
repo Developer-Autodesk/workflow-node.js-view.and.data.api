@@ -24,7 +24,6 @@ get model URNs - as explained in the Setup/Usage Instructions.
 
 ## Setup/Usage Instructions
  
-* Apply for your own credentials (API keys) from [http://developer.autodesk.com](http://developer.autodesk.com)
 * From the sample root folder, rename or copy the ./credentials_.js file into ./credentials.js <br />
   * Windows <br />
     ```
@@ -34,12 +33,6 @@ get model URNs - as explained in the Setup/Usage Instructions.
     ```
     cp credentials_.js credentials.js  
 	```
-* Replace the placeholder with your own keys in credentials.js, line #29 and #30 <br />
-  ```
-  credentials.ClientId = '<replace with consumer key>';
-  
-  credentials.ClientSecret = '<replace with consumer secret>';
-  ```
 * The [upload tool](http://still-spire-1606.herokuapp.com) provides some existing models. Choose any one of them, or upload one of your own
   models with [upload tool](http://still-spire-1606.herokuapp.com). The [upload tool](http://still-spire-1606.herokuapp.com) will generate a URN of the model that you need later.
 * Copy the URN which was generated in the previous step in file /www/index.js at line #18 <br />
