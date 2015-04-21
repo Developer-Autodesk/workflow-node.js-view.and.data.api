@@ -34,7 +34,7 @@ get model URNs - as explained in the Setup/Usage Instructions.
     ```
     cp credentials_.js credentials.js  
 	```
-* Replace the placeholder with your own keys in credentials.js, line #29 and #30 <br />
+* Replace the placeholder with your own keys in credentials.js, line #23 and #24 <br />
   ```
   credentials.ClientId = '<replace with your consumer key>';
   

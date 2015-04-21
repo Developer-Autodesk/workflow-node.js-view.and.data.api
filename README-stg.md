@@ -1,3 +1,10 @@
+<b>
+This README explains how to setup the sample to use the Staging environment vs Production.<br />
+It is a configuration which works only for people having access to the staging environment (Autodesk internal only)
+</b>
+<br />
+
+
 # Autodesk View and Data API Node.js Basic Sample
 
 This setup is only available for people having access to the staging server. If you do not have credentials for the staging server, do not use these instructions.
@@ -7,8 +14,6 @@ This setup is only available for people having access to the staging server. If 
 A sample demonstrating how to view a model in a web application with the Autodesk View & Data API. This web application has a basic Node.js 
 server and JavaScript/HTML5 client. This sample does not demonstrate how to upload a model to the Autodesk server for translation. See instructions below 
 to prepare a model to be consumed in this sample.
-
-This README explains how to setup the sample to use the Staging environment vs Production.
 
 
 ## Dependencies
@@ -38,13 +43,16 @@ get model URNs - as explained in the Setup/Usage Instructions.
     ```
     cp credentials_.js credentials.js  
 	```
-* Replace the placeholder with your own keys in credentials.js, line #29 and #30 <br />
+* Replace the placeholder with your own keys in credentials.js, line #23 and #24 <br />
   ```
   credentials.ClientId = '<replace with your consumer key>';
   
   credentials.ClientSecret = '<replace with your consumer secret>';
   ```
-* In file credentials.js, comment out line #23, and uncomment line #24
+* In file credentials.js line #26, replace the BaseUrl address by the staging server address <br />
+  ```
+  credentials.BaseUrl = 'https://developer-stg.api.autodesk.com' ;
+  ```
 * Upload one of your models to your account and get its URN using another workflow sample, for example,
   - [this workflow sample in .Net WPF application](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) if you are using windows 
   - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac

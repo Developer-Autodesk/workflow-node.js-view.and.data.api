@@ -18,15 +18,12 @@
 
 var credentials ={} ;
 
-// If you which to use the Autodesk View & Data API on the staging server,
-// comment out the line #23 and uncomment line #24
-credentials.BaseUrl = 'https://developer.api.autodesk.com' ;
-//credentials.BaseUrl = 'https://developer-stg.api.autodesk.com' ;
-
-// Replace placeholder below by the Consumer Key and Consumer secret you got from
+// Replace placeholder below by the Consumer Key and Consumer Secret you got from
 // http://developer.autodesk.com/ for the production server
-// or http://developer-stg.autodesk.com/ for the staging server
 credentials.ClientId ='<replace with your consumer key>' ;
 credentials.ClientSecret ='<replace with your consumer secret>' ;
+
+// If you which to use the Autodesk View & Data API on the staging server, change this url
+credentials.BaseUrl = 'https://developer.api.autodesk.com' ;
 
 module.exports =credentials ;
