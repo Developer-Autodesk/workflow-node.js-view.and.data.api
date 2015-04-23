@@ -32,3 +32,4 @@ credentials.js
 
 # webstorm project files
 .idea
+credentials_.js
