@@ -43,11 +43,22 @@ $(document).ready(function () {
                 $('#viewerDiv')[0],
                 viewerConfig);
 
+
+            viewer.addEventListener(
+                    Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
+                    function(event) {
+                        loadExtensions(viewer);
+                });
+
             viewer.load(pathInfoCollection.path3d[0].path);
         },
         onError);
 
 });
+
+function loadExtensions(viewer) {
+    viewer.loadExtension('Viewing.Extension.Workshop');
+}
 
 function onError(error) {
     console.log('Error: ' + error);
