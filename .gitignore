@@ -32,4 +32,7 @@ credentials.js
 
 # webstorm project files
 .idea
-credentials_.js
+
+.DS_store
+Thumbs.db
+*.bak
