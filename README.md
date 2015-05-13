@@ -39,7 +39,7 @@ get model URNs - as explained in the Setup/Usage Instructions.
     ```
     cp credentials_.js credentials.js  
 	```
-* Replace the placeholder with your own keys in credentials.js, line #23 and #24 <br />
+* Replace the placeholders with your own keys in credentials.js, line #23 and #24 <br />
   ```
   credentials.ConsumerKey =process.env.CONSUMERKEY || '<replace with your consumer key>';
   
