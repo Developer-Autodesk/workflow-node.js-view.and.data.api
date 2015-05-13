@@ -53,7 +53,6 @@ function onError(error) {
     console.log('Error: ' + error);
 };
 
-
 // The following code does not rely on Autodesk.ADN.Toolkit.Viewer.AdnViewerManager
 // and uses the Autodesk API directly.
 //
