@@ -35,4 +35,4 @@ credentials.js
 
 .DS_store
 Thumbs.db
-
+*.bak
