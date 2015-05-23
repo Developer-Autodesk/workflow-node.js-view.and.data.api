@@ -45,9 +45,9 @@ get model URNs - as explained in the Setup/Usage Instructions.
 	```
 * Replace the placeholders with your own keys in credentials.js, line #23 and #24 <br />
   ```
-  credentials.ConsumerKey =process.env.CONSUMERKEY || '<replace with your consumer key>';
+  client_id: process.env.CONSUMERKEY || '<replace with your consumer key>';
   
-  credentials.ConsumerSecret =process.env.CONSUMERSECRET || '<replace with your consumer secret>';
+  client_secret: process.env.CONSUMERSECRET || '<replace with your consumer secret>';
   ```
 * In file credentials.js line #26, replace the BaseUrl address by the staging server address <br />
   ```
