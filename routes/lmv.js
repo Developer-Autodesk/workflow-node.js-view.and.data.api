@@ -18,6 +18,9 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 //
+var credentials =(require ('fs').existsSync ('credentials.js') ?
+	  require('../credentials')
+	: (console.log ('No credentials.js file present, assuming using CONSUMERKEY & CONSUMERSECRET system variables.'), require('../credentials_'))) ;
 var express =require ('express') ;
 var request =require ('request') ;
 // unirest (http://unirest.io/) or SuperAgent (http://visionmedia.github.io/superagent/)
@@ -26,7 +29,6 @@ var events =require('events') ;
 var util =require ('util') ;
 var path =require ('path') ;
 var fs =require ('fs') ;
-var credentials =require ('../credentials') ;
 
 // LMV object
 function Lmv (bucketName) {
@@ -51,16 +53,10 @@ util.inherits (Lmv, events.EventEmitter) ;
 // POST /authentication/v1/authenticate
 /*static*/ Lmv.refreshToken =function () {
 	console.log ('Refreshing Autodesk Service token') ;
-	var params ={
-		client_id: credentials.ClientId,
-		client_secret: credentials.ClientSecret,
-		grant_type: 'client_credentials'
-	} ;
-	var endpoint =credentials.BaseUrl + '/authentication/v1/authenticate' ;
-	unirest.post (endpoint)
+	unirest.post (credentials.Authentication)
 		.header ('Accept', 'application/json')
 		.type ('application/x-www-form-urlencoded')
-		.send (params)
+		.send (credentials.credentials)
 		.end (function (response) {
 			try {
 				if ( response.statusCode != 200 )
