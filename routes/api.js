@@ -28,7 +28,7 @@ var router =express.Router () ;
 ///////////////////////////////////////////////////////////////////////////////
 router.get ('/token', function (req, res) {
     request.post (
-        credentials.BaseUrl + '/authentication/v1/authenticate',
+        credentials.Authentication,
         { form: credentials.credentials },
         function (error, response, body) {
             if ( !error && response.statusCode == 200 )
