@@ -1,7 +1,7 @@
 # Autodesk View and Data API Node.js Basic Sample
 
 
-[![build status](https://api.travis-ci.org/Developer-Autodesk/workflow-node.js-view.and.data.api.png)](https://travis-ci.org/Developer-Autodesk/workflow-node.js-view.and.data.api)
+[![build status](https://api.travis-ci.org/Developer-Autodesk/workflow-node.js-view.and.data.api.png)](https://travis-ci.org/Developer-Autodesk/workflow-node.js-view.and.data.api) 
 
 
 
