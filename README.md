@@ -43,10 +43,10 @@ It depends on other workflow samples to upload models and retrieve the model URN
   
   client_secret: process.env.CONSUMERSECRET || '<replace with your consumer secret>';
   ```
-* Upload one of your models to your account and get its URN using another workflow sample, for example,
-  - [this workflow sample in .Net WPF application](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) if you are using windows 
-  - or [this workflow sample in Mac OS Swift](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) if you are using Mac
-  - or this [WEB page](http://models.autodesk.io/) or this [one](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com/)
+* Upload one of your models to your account and get its URN using another workflow sample, for example:
+  - [.NET WPF application workflow sample](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) on Windows 
+  - [Mac OS Swift workflow sample](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) on Mac
+  - [models.autodesk.io WEB page](http://models.autodesk.io) or this [javalmvwalkthrough WEB page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com) in the browser
 * Copy the URN which was generated in the previous step in file /www/index.js at line #18 <br />
   ```
   var defaultUrn = '<replace with your encoded urn>';
@@ -58,19 +58,21 @@ It depends on other workflow samples to upload models and retrieve the model URN
 * Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
 
-This sample can also work with the Autodesk staging server (vs production) or work with someone else's credentials as long you can get a valid token. 
-By default, the project is setup with the production server, and use your own credentials. If you are interested by a different setup, see the Options below.
+This sample can also work with the Autodesk staging server (vs. production) or using someone else's credentials as long you can get a valid token. 
+By default, the project is setup with the production server, and use your own credentials. 
+If you are interested in a different setup, see the Options below.
 
 ## Options
 
-You can work with production or staging Autodesk View and Data environments. By default, the project is setup with the production server.
+You can work with production or staging Autodesk View and Data environments. 
+By default, the project is set up with the production server.
 
 * Instructions to setup this sample to use the Autodesk View & Data staging server are [here](https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api/blob/master/README-stg.md) 
 
 
-You can also use someone else credentials to view models using this sample.
+You can also use someone else's credentials to view models using this sample.
 
-* Instructions to setup this sample using someone else credentials are available [here](https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api/blob/master/README-option.md) 
+* Instructions to set up this sample using someone else's credentials are available [here](https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api/blob/master/README-option.md) 
 
 
 ## License
@@ -80,6 +82,5 @@ That samples are licensed under the terms of the [MIT License](http://opensource
 
 ## Written by 
 
-Written by [Philippe Leefsma](http://adndevblog.typepad.com/cloud_and_mobile/philippe-leefsma.html)  <br />
-(Autodesk Developer Network)
+Written by [Philippe Leefsma](http://adndevblog.typepad.com/cloud_and_mobile/philippe-leefsma.html), Autodesk Developer Network.
 
