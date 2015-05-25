@@ -44,9 +44,9 @@ It depends on other workflow samples to upload models and retrieve the model URN
   client_secret: process.env.CONSUMERSECRET || '<replace with your consumer secret>';
   ```
 * Upload one of your models to your account and get its URN using another workflow sample, for example:
-  - [.NET WPF application workflow sample](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) on Windows 
-  - [Mac OS Swift workflow sample](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api) on Mac
-  - [models.autodesk.io WEB page](http://models.autodesk.io) or this [javalmvwalkthrough WEB page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com) in the browser
+  - Windows: [.NET WPF application workflow sample](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) 
+  - Mac: [Mac OS Swift workflow sample](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api)
+  - Browser: [models.autodesk.io web page](http://models.autodesk.io) or [javalmvwalkthrough web page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com)
 * Copy the URN which was generated in the previous step in file /www/index.js at line #18 <br />
   ```
   var defaultUrn = '<replace with your encoded urn>';
