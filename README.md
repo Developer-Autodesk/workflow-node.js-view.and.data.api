@@ -7,29 +7,27 @@
 
 
 ## Description
-A sample demonstrating how to view a model in a web application with the Autodesk View & Data API. This web application has a basic Node.js 
-server and JavaScript/HTML5 client. This sample does not demonstrate how to upload a model to the Autodesk server for translation. See instructions below 
-to prepare a model to be consumed in this sample.
+This sample demonstrates how to view a model in a web application with the Autodesk View & Data API. This web application implements a basic Node.js server and JavaScript/HTML5 client. It does not demonstrate how to upload a model to the Autodesk server for translation. See instructions below on how to prepare a model to be consumed in this sample.
 
 
 ## Dependencies
-Install Node.js on your machine and clone this repo. Download the project dependencies using npm before running the app by running 
-the following command in the project root directory
+Install Node.js on your machine and clone this repo. Download the project dependencies using npm before launching the app by running 
+the following command in the project root directory:
 ```
 npm install
 ```
-on the node.js console. This will install the following node.js modules in the project:
+This will install the following node.js modules in the project:
 - express
 - request
 - serve-favicon
 
-This sample does not include the workflow of uploading models. on the server It depends on other workflow samples to upload models and 
-get model URNs - as explained in the Setup/Usage Instructions.
+As said, this sample does not include the workflow of uploading models to the server.
+It depends on other workflow samples to upload models and retrieve the model URNs, as explained in the Setup/Usage Instructions.
 
 
 ## Setup/Usage Instructions
  
-* Apply for your own credentials (API keys) from [http://developer.autodesk.com](http://developer.autodesk.com)
+* Apply for your own credentials (API keys) from [developer.autodesk.com](http://developer.autodesk.com)
 * From the sample root folder, rename or copy the ./credentials_.js file into ./credentials.js <br />
   * Windows <br />
     ```
