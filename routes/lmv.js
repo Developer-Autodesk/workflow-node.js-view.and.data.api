@@ -55,7 +55,7 @@ util.inherits (Lmv, events.EventEmitter) ;
 	console.log ('Refreshing Autodesk Service token') ;
 	unirest.post (credentials.Authentication)
 		.header ('Accept', 'application/json')
-		.type ('application/x-www-form-urlencoded')
+		//.type ('application/x-www-form-urlencoded')
 		.send (credentials.credentials)
 		.end (function (response) {
 			try {
