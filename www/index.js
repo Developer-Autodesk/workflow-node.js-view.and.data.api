@@ -53,52 +53,66 @@ function onError(error) {
     console.log('Error: ' + error);
 };
 
+/*
 // The following code does not rely on Autodesk.ADN.Toolkit.Viewer.AdnViewerManager
 // and uses the Autodesk API directly.
-//
-//        $(document).ready(function () {
-//            var getToken =  function() {
-//                var xhr = new XMLHttpRequest();
-//                xhr.open("GET", 'http://' + window.location.host + '/api/token', false);
-//                xhr.send(null);
-//                return xhr.responseText;
-//            }
-//
-//            function initializeViewer(containerId, documentId, role) {
-//                var viewerContainer = document.getElementById(containerId);
-//                var viewer = new Autodesk.Viewing.Private.GuiViewer3D(
-//                        viewerContainer);
-//                viewer.start();
-//
-//                Autodesk.Viewing.Document.load(documentId,
-//                        function (document) {
-//                            var rootItem = document.getRootItem();
-//                            var geometryItems = Autodesk.Viewing.Document.getSubItemsWithProperties(
-//                                    rootItem,
-//                                    { 'type': 'geometry', 'role': role },
-//                                    true);
-//
-//                            viewer.load(document.getViewablePath(geometryItems[0]));
-//                        },
-//
-//                        // onErrorCallback
-//                        function (msg) {
-//                            console.log("Error loading document: " + msg);
-//                        }
-//                );
-//            }
-//
-//            function initialize() {
-//                var options = {
-//                    env: "AutodeskProduction",
-//                    getAccessToken: getToken,
-//                    refreshToken: getToken
-//                };
-//
-//                Autodesk.Viewing.Initializer(options, function () {
-//                    initializeViewer('viewerDiv', urn, '3d');
-//                });
-//            }
-//
-//            initialize();
-//        });
+
+       $(document).ready(function () {
+           var getToken =  function() {
+               var xhr = new XMLHttpRequest();
+               xhr.open("GET", 'http://' + window.location.host + '/api/token', false);
+               xhr.send(null);
+
+               var response = JSON.parse(
+                    xhr.responseText);
+
+                return response.access_token;
+           }
+
+           function initializeViewer(containerId, documentId, role) {
+               var viewerContainer = document.getElementById(containerId);
+               var viewer = new Autodesk.Viewing.Private.GuiViewer3D(
+                       viewerContainer);
+               viewer.start();
+
+               Autodesk.Viewing.Document.load(documentId,
+                       function (document) {
+                           var rootItem = document.getRootItem();
+                           var geometryItems = Autodesk.Viewing.Document.getSubItemsWithProperties(
+                                   rootItem,
+                                   { 'type': 'geometry', 'role': role },
+                                   true);
+
+                           viewer.load(document.getViewablePath(geometryItems[0]));
+                       },
+
+                       // onErrorCallback
+                       function (msg) {
+                           console.log("Error loading document: " + msg);
+                       }
+               );
+           }
+
+           function initialize() {
+               var options = {
+                   env: "AutodeskProduction",
+                   getAccessToken: getToken,
+                   refreshToken: getToken
+               };
+
+                // Allows different urn to be passed as url parameter
+                var paramUrn = Autodesk.Viewing.Private.getParameterByName('urn');
+                var urn = (paramUrn !== '' ? paramUrn : defaultUrn);
+
+                if (urn.indexOf('urn:') !== 0)
+                urn = 'urn:' + urn;
+
+               Autodesk.Viewing.Initializer(options, function () {
+                   initializeViewer('viewerDiv', urn, '3d');
+               });
+           }
+
+           initialize();
+       });
+
+*/
