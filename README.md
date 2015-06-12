@@ -2,7 +2,7 @@
 
 
 [![build status](https://api.travis-ci.org/Developer-Autodesk/workflow-node.js-view.and.data.api.png)](https://travis-ci.org/Developer-Autodesk/workflow-node.js-view.and.data.api)
-![](https://img.shields.io/badge/verified%20on-v1.2.15-green.svg)
+[![LMV](https://img.shields.io/badge/View%20%26%20Data%20API-v1.2.15-green.svg)](http://developer-autodesk.github.io/)
 
 
 
