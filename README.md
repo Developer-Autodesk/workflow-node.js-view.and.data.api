@@ -1,3 +1,7 @@
+<b>Note:</b> This repo is also used by our [tutorial material](https://github.com/Developer-Autodesk/tutorial-getting.started-view.and.data). If you are following instructions 
+from our tutorial, please ignore the instrctions below.
+
+
 # Autodesk View and Data API Node.js Basic Sample
 
 
