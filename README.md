@@ -51,7 +51,7 @@ It depends on other workflow samples to upload models and retrieve the model URN
   - Windows: [.NET WPF application workflow sample](https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api) 
   - Mac: [Mac OS Swift workflow sample](https://github.com/Developer-Autodesk/workflow-macos-swift-view.and.data.api)
   - Browser: [models.autodesk.io web page](http://models.autodesk.io) or [javalmvwalkthrough web page](http://javalmvwalkthrough-vq2mmximxb.elasticbeanstalk.com)
-* Copy the URN which was generated in the previous step in file /www/index.js at line #18 <br />
+* Copy the URN which was generated in the previous step in file /www/index.js at line #18 <br />Note: the URN needs to be base64 encoded as mentioned [here](https://developer.autodesk.com/api/view-and-data-api/) under "Step 6: Register Your Data with the Viewing Services"<br />
   ```
   var defaultUrn = '<replace with your encoded urn>';
   ```
