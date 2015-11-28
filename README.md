@@ -43,6 +43,7 @@ This will install the following node.js modules in the project:
   2. Edit the routes/api.js file
   3. Edit the node_modules/view-and-data/config-view-and-data.js file (avoid that option)
   4. Set environment variables
+
      ```
      set CONSUMERKEY=<put your consumer key here>
      set CONSUMERSECRET=<put your consumer secret here>
