@@ -1,0 +1,394 @@
+<html>
+<head>
+
+  <title>Autodesk View & Data API</title>
+
+  <style>
+    .roundedArea {
+
+      margin:25px;
+      width: 500px;
+      padding: 10px;
+      background-color:#cccccc;
+      border: 1px solid #cccccc;
+
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+
+    #viewer {
+
+      margin:25px;
+      width: 520px;
+      position: relative;
+      overflow: hidden;
+
+      background-color:#cccccc;
+      border: 1px solid #cccccc;
+
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+
+  </style>
+
+  <!--///////////////////////////////////////////////////////////////////////
+  // Viewer
+  //
+  ////////////////////////////////////////////////////////////////////////-->
+
+  <link type="text/css" rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css?v=v1.2.17"/>
+  <script  type="text/javascript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js?v=v1.2.17"></script>
+  <script  type="text/javascript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js?v=v1.2.17"></script>
+
+  <script type='text/javascript' src='../dist/js/view-and-data-client-v1.js'></script>
+  <script type='text/javascript' src='../dist/js/viewer.js'></script>
+
+  <script type='text/javascript'>
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    var files = [];
+
+    var viewer = null;
+
+    var viewAndDataClient = null;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function testApi() {
+
+      //sanity checks ...
+      var token = document.getElementById("token").value;
+
+      if (token === '') {
+        console.log('Access Token cannot be empty');
+        console.log('Exiting ...');
+        return;
+      }
+
+      var bucket = document.getElementById("bucket").value;
+
+      if (bucket === '') {
+        console.log('Bucket name cannot be empty');
+        console.log('Exiting ...');
+        return;
+      }
+
+      if (files.length === 0) {
+        console.log('No file to upload');
+        console.log('Exiting ...');
+        return;
+      }
+
+      //get into business
+      viewAndDataClient = new Autodesk.ADN.Toolkit.ViewAndData.Client(
+              'https://developer.api.autodesk.com',
+              token);
+
+      viewAndDataClient.onInitialized(function() {
+
+        viewAndDataClient.getBucketDetails(
+
+                bucket,
+
+                //onSuccess
+                function (bucketResponse) {
+
+                  console.log('Bucket details successful:');
+                  console.log(bucketResponse);
+
+                  uploadFiles(bucket, files);
+                },
+
+                //onError
+                function (error) {
+
+                  console.log("Bucket doesn't exist");
+                  console.log("Attempting to create...");
+
+                  createBucket(bucket);
+                });
+      });
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function createBucket(bucket) {
+
+      //this ensure compatibility with v1 and v2 of the API
+      var bucketCreationData = {
+
+        bucketKey: bucket,
+        servicesAllowed: {},
+        policyKey: 'transient',
+        policy: 'transient'
+      }
+
+      viewAndDataClient.createBucket(
+
+              bucketCreationData,
+
+              //onSuccess
+              function (response) {
+
+                console.log('Bucket creation successful:');
+                console.log(response);
+
+                uploadFiles(bucket, files);
+              },
+
+              //onError
+              function (error) {
+
+                console.log('Bucket creation failed:');
+                console.log(error);
+                console.log('Exiting ...');
+                return;
+              });
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function uploadFiles(bucket, files) {
+
+      for (var i = 0; i < files.length; ++i) {
+
+        var file = files[i];
+
+        console.log('Uploading file: ' + file.name + ' ...');
+
+        viewAndDataClient.uploadFile(
+
+                file,
+                bucket,
+                file.name,
+
+                //onSuccess
+                function (response) {
+
+                  console.log('File upload successful:');
+                  console.log(response);
+
+                  var fileId = response.objectId;
+
+                  viewAndDataClient.register(
+                          fileId,
+                          function(registerResponse) {
+
+                            console.log(registerResponse);
+
+                            if (registerResponse.Result === "Success" ||
+                                    registerResponse.Result === "Created") {
+
+                              console.log("Registration result: " +
+                              registerResponse.Result);
+
+                              console.log('Starting translation: ' +
+                              fileId);
+
+                              checkTranslationStatus(
+                                      fileId,
+                                      1000 * 60 * 5, //5 mins timeout
+
+                                      //onSuccess
+                                      function (viewable) {
+
+                                        console.log("Translation successful: " +
+                                        response.file.name);
+
+                                        console.log("Viewable: ");
+                                        console.log(viewable);
+
+                                        var viewerFactoryConfig = {
+
+                                          environment: 'AutodeskProduction'
+                                        };
+
+                                        var viewerConfig = {
+
+                                          lightPreset: 8,
+                                          viewerType: 'Viewer3D', //['Viewer3D', 'GuiViewer3D']
+                                          qualityLevel: [true, true],
+                                          navigationTool: 'freeorbit',
+                                          progressiveRendering: true
+                                        };
+
+                                        var viewerFactory = new Autodesk.ADN.Toolkit.Viewer.ViewerFactory(
+                                                document.getElementById("token").value,
+                                                viewerFactoryConfig);
+
+                                        viewerFactory.onInitialized(function () {
+
+                                          viewerFactory.getViewablePath(viewable.urn,
+                                                  function (pathCollection) {
+
+                                                    //the DOM container
+                                                    var viewerContainer = document.getElementById("viewer");
+
+                                                    viewer = viewerFactory.createViewer(
+                                                            viewerContainer,
+                                                            viewerConfig);
+
+                                                    //loads the first 3d or 2d path available
+                                                    if (pathCollection.path3d.length > 0) {
+
+                                                      viewer.load(pathCollection.path3d[0].path);
+                                                    }
+
+                                                    else if (pathCollection.path2d.length > 0) {
+
+                                                      viewer.load(pathCollection.path2d[0].path);
+                                                    }
+                                                  },
+                                                  function (error) {
+
+                                                    console.log(error);
+                                                  });
+                                        });
+                                      });
+                            }
+                          });
+                },
+
+                //onError
+                function (error) {
+
+                  console.log('File upload failed:');
+                  console.log(error);
+                });
+      }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function checkTranslationStatus(fileId, timeout, onSuccess) {
+
+      var startTime = new Date().getTime();
+
+      var timer = setInterval(function () {
+
+        var dt = (new Date().getTime() - startTime) / timeout;
+
+        if (dt >= 1.0) {
+
+          clearInterval(timer);
+        }
+        else {
+
+          viewAndDataClient.getViewable(
+                  fileId,
+                  function (response) {
+
+                    console.log(
+                            'Translation Progess ' +
+                            fileId + ': '
+                            + response.progress);
+
+                    if (response.progress === 'complete') {
+
+                      clearInterval(timer);
+                      onSuccess(response);
+                    }
+                  },
+                  function (error) {
+
+                  });
+        }
+      }, 2000);
+    };
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function onFileSelect(event) {
+
+      files = event.target.files;
+
+      var output = [];
+
+      for (var i = 0; i < files.length; ++i) {
+
+        var file = files[i]
+
+        output.push(
+                '<li><strong>',
+                escape(file.name),
+                '</strong> (',
+                file.type || 'n/a',
+                ') <br>',
+                file.size,
+                ' bytes, last modified: ',
+                file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'n/a',
+                '</li><br>');
+      }
+
+      document.getElementById('fileList').innerHTML = '<ul>' + output.join('') + '</ul>';
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="roundedArea">
+
+  <strong>ADN View & Data API Tester</strong>
+
+  <br><br>
+  Input the name of a bucket and select files to upload. If the bucket doesn't exist it will be created,
+  then the files will be upload and translated, ready for viewing using the output URN.
+
+  <br><br>
+  Token generation cannot be achieved directly from a browser, so you need API keys to generate the token
+  some other way: using curl, an executable, ADN samples, ...
+  For demo purposes, you can use the url provided below.
+
+  <br><br>
+  Access Token URL (typically URL of your server returning token data):
+  <br>
+  <input type="text" id="token" style="width: 350px" value="http://still-spire-1606.herokuapp.com/api/rawtoken">
+
+  <br><br>
+  Bucket name:
+  <br>
+  <input type="text" id="bucket" style="width: 350px">
+
+</div>
+
+<div class="roundedArea">
+  Select file to upload...
+  <br><br>
+
+  <input type="file"
+         id="fileInput"
+         name="files[]"
+         onchange="onFileSelect(event)"/>
+
+  <output id="fileList"></output>
+</div>
+
+<div class="roundedArea">
+  <button type="button" onclick="testApi()">Let's view it!</button>
+</div>
+
+<div id="viewer" style="height:400px;">
+
+</div>
+
+</body>
+</html>

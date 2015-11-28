@@ -1,0 +1,47 @@
+{
+	"name": "AdnViewerBasic",
+	"description": "A basic node.js server sample",
+	"homepage": "http://around-the-corner.typepad.com/",
+	"version": "2.0.0",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api/issues"
+	},
+	"author": "Various - Autodesk",
+	"contributors": [
+		"Philippe Leefsma <philippe.leefsma@autodesk.com>",
+		"Cyrille Fauvel <cyrille@autodesk.com>"
+	],
+	"license": "MIT",
+	"files": [
+		"LICENSE",
+		"README.md"
+	],
+	"keywords": [
+		"express",
+		"framework",
+		"raspberry",
+		"node",
+		"iot"
+	],
+	"moduleType": "node",
+	"dependencies": {
+		"jquery": "2.1.4",
+		"requirejs": "2.1.17",
+		"domReady": "2.0.1",
+		"view-and-data-toolkit": "*",
+		"requirejs-plugins": "~1.0.3"
+	},
+	"devDependencies": {},
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
+}

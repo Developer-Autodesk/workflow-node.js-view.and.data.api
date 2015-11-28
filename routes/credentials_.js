@@ -1,6 +1,9 @@
-/////////////////////////////////////////////////////////////////////////////////
+//
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Philippe Leefsma 2014 - ADN/Developer Technical Services
+//
+// Node.js server workflow
+// by Philippe Leefsma - ADN/Developer Technical Services
+//    Cyrille Fauvel - Autodesk Developer Network (ADN)
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -14,8 +17,9 @@
 // MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
-/////////////////////////////////////////////////////////////////////////////////
-var credentials ={
+//
+
+var config ={
 
 	credentials: {
 		// Replace placeholder below by the Consumer Key and Consumer Secret you got from
@@ -30,6 +34,6 @@ var credentials ={
 	Version: 'v1'
 } ;
 
-credentials.Authentication =credentials.BaseUrl + '/authentication/' + credentials.Version + '/authenticate'
+config.Authentication =config.BaseUrl + '/authentication/' + config.Version + '/authenticate'
 
-module.exports =credentials ;
+module.exports =config ;

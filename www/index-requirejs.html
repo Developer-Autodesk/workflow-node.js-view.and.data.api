@@ -1,6 +1,9 @@
-/////////////////////////////////////////////////////////////////////////////////
+<!--
+//
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Philippe Leefsma 2014 - ADN/Developer Technical Services
+//
+// Node.js server workflow
+// by Cyrille Fauvel - Autodesk Developer Network (ADN)
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -14,19 +17,19 @@
 // MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
-/////////////////////////////////////////////////////////////////////////////////
-var favicon = require('serve-favicon');
-var api = require('./routes/api');
-var express = require('express');
+//
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>A basic node.js server sample</title>
 
-var app = express();
+    <script data-main="requirejs/main" src="/bower_components/requirejs/require.js"></script>
+</head>
 
-app.use('/', express.static(__dirname + '/www'));
-app.use(favicon(__dirname + '/www/images/favicon.ico'));
-app.use('/api', api);
+<body>
+	<div id="viewer"></div>
+</body>
 
-app.set('port', process.env.PORT || 3000);
-
-var server = app.listen(app.get('port'), function() {
-    console.log('Server listening on port ' + server.address().port);
-});
+</html>

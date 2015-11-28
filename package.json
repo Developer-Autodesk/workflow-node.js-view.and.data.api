@@ -1,29 +1,48 @@
 {
 	"name": "AdnViewerBasic",
 	"description": "A basic node.js server sample",
-	"version": "1.0.0",
-	"dependencies": {
-		"serve-favicon": ">= 2.2.0",
-		"express": ">= 4.12.3",
-		"request": ">= 2.55.0"
+	"homepage": "http://around-the-corner.typepad.com/",
+	"version": "2.0.0",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api.git"
 	},
-	"files": [
-		"LICENSE",
-		"README.md"
-	],
-	"engines": {
-		"node": ">= 0.10.0"
+	"bugs": {
+		"url": "https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api/issues"
 	},
+	"author": "Various - Autodesk Developer Network",
 	"contributors": [
 		"Philippe Leefsma <philippe.leefsma@autodesk.com>",
 		"Cyrille Fauvel <cyrille@autodesk.com>"
 	],
 	"license": "MIT",
-	"scripts": {
-		"start": "node server.js"
+	"engines": {
+		"node": ">= 0.12.4",
+		"npm": ">= 2.10.1"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Developer-Autodesk/workflow-node.js-view.and.data.api.git"
-	}
+	"scripts": {
+		"start": "node start.js",
+		"debug": "node --debug-brk=5858 --nolazy start.js",
+		"postinstall": "bower install"
+	},
+	"files": [
+		"LICENSE",
+		"README.md"
+	],
+	"keywords": [
+		"express",
+		"framework",
+		"node",
+		"viewanddata"
+	],
+	"dependencies": {
+		"serve-favicon": ">= 2.2.0",
+		"express": ">= 4.12.3",
+		"request": ">= 2.55.0",
+		"view-and-data": "^1.0.6",
+		"bower": "^1.6.5"
+	},
+	"devDependencies": {},
+	"optionalDependencies": {}
 }

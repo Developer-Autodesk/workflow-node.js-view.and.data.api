@@ -1,6 +1,10 @@
-<!--/////////////////////////////////////////////////////////////////////////////////
+<!--
+//
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Philippe Leefsma 2014 - ADN/Developer Technical Services
+//
+// Node.js server workflow
+// by Philippe Leefsma - ADN/Developer Technical Services
+//    Cyrille Fauvel - Autodesk Developer Network (ADN)
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -14,34 +18,32 @@
 // MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
-////////////////////////////////////////////////////////////////////////////////-->
+//
+-->
+<!DOCTYPE html>
 <html>
 <head>
-
-    <title>ADN Viewer Demo</title>
+    <meta charset="utf-8" />
+    <title>A basic node.js server sample</title>
 
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-2.1.2.min.js"></script>
 
-    <!-- Viewer staging -->
-    <!--link type="text/css" rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"/>
-    <script src="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script -->
-
     <!-- Viewer production -->
-    <link type="text/css" rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css"/>
+    <link href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css" rel="stylesheet" />
     <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
 
     <!-- Autodesk.ADN.Toolkit.Viewer -->
-    <script src="https://rawgit.com/Developer-Autodesk/library-javascript-view.and.data.api/master/js/Autodesk.ADN.Toolkit.Viewer.js"></script>
+    <script src="/bower_components/view-and-data-toolkit/dist/js/viewer.js"></script>
 
+    <link href="/index.css" rel="stylesheet" />
     <script src="/index.js"></script>
-
 </head>
 
-<body style="margin:0">
-	<div id="viewerDiv"></div>
-	
+<body>
+	<div id="viewer"></div>
 </body>
+
 </html>
