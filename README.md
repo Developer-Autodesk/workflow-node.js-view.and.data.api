@@ -38,10 +38,11 @@ This will install the following node.js modules in the project:
 * Apply for your own credentials (API keys) from [developer.autodesk.com](http://developer.autodesk.com)
 
 * There is 3 ways to setup the sample with your API keys
-  1- Edit the routes/credentials.js file
-  2- Edit the routes/api.js file
-  3- Edit the node_modules/view-and-data/config-view-and-data.js file (avoid that option)
-  4- Set environment variables
+
+  1. Edit the routes/credentials.js file
+  2. Edit the routes/api.js file
+  3. Edit the node_modules/view-and-data/config-view-and-data.js file (avoid that option)
+  4. Set environment variables
      ```
      set CONSUMERKEY=<put your consumer key here>
      set CONSUMERSECRET=<put your consumer secret here>
@@ -78,16 +79,16 @@ Note: the URN needs to be base64 encoded as mentioned [here](https://developer.a
   ```
 * Connect to you local server using a WebGL-compatible browser: [http://localhost:3000/](http://localhost:3000/)
 
-  1- [index.html](http://localhost:3000/index.html) is a version which uses the new view-and-data-toolkit
+  1. [index.html](http://localhost:3000/index.html) is a version which uses the new view-and-data-toolkit
      you can install use bower.
      ```
      bower install view-and-data-toolkit --save
      ```
-  2- [index-old.html](http://localhost:3000/index-old.html) is the older version of the view-and-data-toolkit
+  2. [index-old.html](http://localhost:3000/index-old.html) is the older version of the view-and-data-toolkit
      which is accessed directly from [github](https://github.com/Developer-Autodesk/library-javascript-view.and.data.api).
-  3- [index-pure.html](http://localhost:3000/index-pure.html) is a version using the View & Data API without
+  3. [index-pure.html](http://localhost:3000/index-pure.html) is a version using the View & Data API without
      the toolkit. Pure because it is raw API.
-  4- [index-requirejs.html](http://localhost:3000/index-requirejs.html) is a version that uses [require.js](http://requirejs.org/)
+  4. [index-requirejs.html](http://localhost:3000/index-requirejs.html) is a version that uses [require.js](http://requirejs.org/)
      to manage javascript modules using the latest view-and-data-toolkit (1).
 
 Note: the 4 html/js do exactly the same thing. Only the coding is different.
