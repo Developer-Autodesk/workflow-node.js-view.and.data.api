@@ -63,7 +63,15 @@ function onError(error) {
 //                xhr.send(null);
 //                return xhr.responseText;
 //            }
+
+//              // Allows different urn to be passed as url parameter
+//              var paramUrn = Autodesk.Viewing.Private.getParameterByName('urn');
+//              var urn = (paramUrn !== '' ? paramUrn : defaultUrn);
+//    
 //
+//              if (urn.indexOf('urn:') !== 0)
+//                  urn = 'urn:' + urn;
+                  
 //            function initializeViewer(containerId, documentId, role) {
 //                var viewerContainer = document.getElementById(containerId);
 //                var viewer = new Autodesk.Viewing.Private.GuiViewer3D(
